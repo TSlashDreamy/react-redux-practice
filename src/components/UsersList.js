@@ -1,24 +1,36 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, fetchUsers } from "../store";
 import Skeleton from "./Skeleton";
 import Button from "./Button";
 
 const UsersList = () => {
+  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
   const dispath = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.users);
+  const { data } = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispath(fetchUsers());
+    setIsLoadingUsers(true);
+    dispath(fetchUsers())
+      .unwrap()
+      .catch((e) => setLoadingUsersError(e))
+      .finally(() => setIsLoadingUsers(false));
   }, [dispath]);
 
   const handleUserAdd = () => {
-    dispath(addUser());
+    setIsCreatingUser(true);
+    dispath(addUser())
+      .unwrap()
+      .catch((e) => setCreatingUserError(e))
+      .finally(() => setIsCreatingUser(false));
   };
 
-  if (isLoading) return <Skeleton times={6} className="h-10 w-full" />;
-  if (error) {
-    console.error(error);
+  if (isLoadingUsers) return <Skeleton times={6} className="h-10 w-full" />;
+  if (loadingUsersError) {
+    console.error(loadingUsersError);
     return <div>Fetching error. (Check the console)</div>;
   }
 
@@ -34,7 +46,12 @@ const UsersList = () => {
     <div>
       <div className="flex flex-row justify-between m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        <Button onClick={handleUserAdd}>+ Add User</Button>
+        {isCreatingUser ? (
+          "Creating user..."
+        ) : (
+          <Button onClick={handleUserAdd}>+ Add User</Button>
+        )}
+        {creatingUserError && 'Create user error!'}
       </div>
       {renderedUsers}
     </div>
