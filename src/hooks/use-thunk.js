@@ -14,7 +14,7 @@ const useThunk = (thunk) => {
         .unwrap()
         .then((data) => console.log(data))
         .catch((err) => setError(err))
-        .finally(setIsLoading(false));
+        .finally(() => setIsLoading(false));
     },
     [dispatch, thunk]
   );
