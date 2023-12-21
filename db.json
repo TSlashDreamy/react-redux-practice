@@ -1,16 +1,32 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Myra"
-    },
-    {
       "name": "Doyle Feil",
       "id": 2
     },
     {
-      "name": "Perry Hammes",
-      "id": 3
+      "name": "Madeline Beahan",
+      "id": 4
+    },
+    {
+      "name": "Samuel Fadel",
+      "id": 7
+    },
+    {
+      "name": "Miss Esther Gleason",
+      "id": 8
+    },
+    {
+      "name": "Levi MacGyver",
+      "id": 9
+    },
+    {
+      "name": "Sean Kuvalis",
+      "id": 11
+    },
+    {
+      "name": "Jean Schaden",
+      "id": 12
     }
   ],
   "albums": [],
