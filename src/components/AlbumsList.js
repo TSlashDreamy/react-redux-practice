@@ -1,14 +1,28 @@
-import { useFetchAlbumsQuery } from "../store";
+import { useAddAlbumMutation, useFetchAlbumsQuery } from "../store";
 import ExpandablePanel from "./ExpandablePanel";
 import Skeleton from "./Skeleton";
+import Button from "./Button";
+import { useEffect } from "react";
 
 const AlbumsList = ({ user }) => {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
+  const [addAlbum, results] = useAddAlbumMutation();
+
+  const handleAddAlbum = () => {
+    addAlbum(user);
+  };
+  useEffect(() => {
+    console.log(results);
+  }, [results]);
 
   let content;
   if (isLoading) content = <Skeleton times={3} className="h-10 w-full" />;
   else if (error) content = <div>Error occured, while fetching albums!</div>;
-  else
+  else if (!data.length)
+    content = (
+      <span className="text-red-500">There are no albums for this user</span>
+    );
+  else {
     content = data.map((album) => {
       const header = album.title;
       return (
@@ -17,19 +31,13 @@ const AlbumsList = ({ user }) => {
         </ExpandablePanel>
       );
     });
+  }
 
   return (
     <div>
       <div>Albums for {user.name}</div>
-      <div>
-        {content.length ? (
-          content
-        ) : (
-          <span className="text-red-500">
-            There are no albums for this user
-          </span>
-        )}
-      </div>
+      <Button onClick={handleAddAlbum}>+ Add Album</Button>
+      <div>{content}</div>
     </div>
   );
 };
