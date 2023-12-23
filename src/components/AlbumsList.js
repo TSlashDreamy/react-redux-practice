@@ -2,7 +2,6 @@ import { useAddAlbumMutation, useFetchAlbumsQuery } from "../store";
 import ExpandablePanel from "./ExpandablePanel";
 import Skeleton from "./Skeleton";
 import Button from "./Button";
-import { useEffect } from "react";
 
 const AlbumsList = ({ user }) => {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
@@ -11,9 +10,8 @@ const AlbumsList = ({ user }) => {
   const handleAddAlbum = () => {
     addAlbum(user);
   };
-  useEffect(() => {
-    console.log(results);
-  }, [results]);
+
+
 
   let content;
   if (isLoading) content = <Skeleton times={3} className="h-10 w-full" />;
