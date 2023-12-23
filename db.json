@@ -23,12 +23,95 @@
     {
       "name": "Sean Kuvalis",
       "id": 11
-    },
-    {
-      "name": "Jean Schaden",
-      "id": 12
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "id": 10,
+      "title": "Hiking memories",
+      "userId": 2
+    },
+    {
+      "userId": 4,
+      "title": "Rustic Frozen Towels",
+      "id": 11
+    },
+    {
+      "userId": 7,
+      "title": "Ergonomic Rubber Chips",
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "title": "Ergonomic Concrete Fish",
+      "id": 16
+    },
+    {
+      "userId": 7,
+      "title": "Tasty Frozen Shirt",
+      "id": 17
+    },
+    {
+      "userId": 7,
+      "title": "Gorgeous Rubber Soap",
+      "id": 18
+    },
+    {
+      "userId": 8,
+      "title": "Bespoke Steel Cheese",
+      "id": 19
+    },
+    {
+      "userId": 4,
+      "title": "Fantastic Plastic Bacon",
+      "id": 24
+    },
+    {
+      "userId": 2,
+      "title": "Sleek Granite Chair",
+      "id": 25
+    },
+    {
+      "userId": 4,
+      "title": "Practical Plastic Shoes",
+      "id": 26
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 10,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=8527648590397440",
+      "id": 1
+    },
+    {
+      "albumId": 16,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=5594528702529536",
+      "id": 3
+    },
+    {
+      "albumId": 16,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=960807932264448",
+      "id": 4
+    },
+    {
+      "albumId": 16,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=5702827944968192",
+      "id": 5
+    },
+    {
+      "albumId": 10,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=6470560074694656",
+      "id": 6
+    },
+    {
+      "albumId": 25,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=2081858498068480",
+      "id": 7
+    },
+    {
+      "albumId": 10,
+      "photo": "https://loremflickr.com/150/150/abstract?lock=8875494055346176",
+      "id": 8
+    }
+  ]
 }
